@@ -19,13 +19,18 @@ interface DragSortListSignature<Item extends object> {
     }) => number;
     draggingEnabled?: boolean;
     dragEndAction?: unknown;
-    dragStartAction?: unknown;
+    dragStartAction?: (args: {
+      event: DragEvent;
+      element: HTMLElement;
+      draggedItem: Item;
+    }) => void;
     handle?: string;
     items: Array<Item>;
     isHorizontal?: boolean;
     isRtl?: boolean;
     group?: string;
     sourceOnly?: boolean;
+    tagName?: string;
   };
   Blocks: {
     default: [item: Item, index: number];

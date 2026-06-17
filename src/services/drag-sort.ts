@@ -53,8 +53,8 @@ export default class DragSort<Item extends object> extends Service {
     item: Item;
     index: number;
     items: Array<Item>;
-    group: string;
-    isHorizontal: boolean;
+    group?: string;
+    isHorizontal?: boolean;
   }) {
     setProperties(this, {
       isDragging: true,
