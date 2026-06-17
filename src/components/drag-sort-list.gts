@@ -92,6 +92,14 @@ export default class DragSortList<Item extends object> extends Component<
     return isDragging && group === groupFromService;
   }
 
+  get isDraggingDeferred() {
+    const isDragging = this.dragSort.isDraggingDeferred;
+    const group = this.args.group;
+    const groupFromService = this.dragSort.group;
+
+    return isDragging && group === groupFromService;
+  }
+
   get isDraggingOver() {
     const isDragging = this.isDragging;
     const items = this.args.items;
@@ -105,7 +113,7 @@ export default class DragSortList<Item extends object> extends Component<
   }
 
   get isExpanded() {
-    const isDragging = this.isDragging;
+    const isDragging = this.isDraggingDeferred;
     const isEmpty = this.isEmpty;
     const isOnlyElementDragged = this.isOnlyElementDragged;
 
